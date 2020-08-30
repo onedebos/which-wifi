@@ -1,5 +1,7 @@
 @tailwind base;
-
+body {
+  font-family: Inter;
+}
 /* Write your own custom base styles here */
 
 /* Start purging... */
@@ -9,6 +11,36 @@
 /* Write you own custom component styles here */
 .btn-blue {
   @apply bg-blue-500 text-white font-bold py-2 px-4 rounded;
+}
+
+.text-blue-1000 {
+  color: #0873fa;
+}
+
+.btn-blue-1000 {
+  background-color: #0873fa;
+}
+
+#loading {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 1s ease-in-out infinite;
+  -webkit-animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spin {
+  to {
+    -webkit-transform: rotate(360deg);
+  }
 }
 
 /* Start purging... */
