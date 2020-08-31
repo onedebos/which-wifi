@@ -39,7 +39,7 @@ const MyApp: React.FC<CompProps> = ({ Component, pageProps }) => {
         <meta
           name="image"
           property="og:image"
-          content="https://res.cloudinary.com/onedebeos/image/upload/v1598883521/which-wifi/Group_8which-wifi_dfrzhc.svg"
+          content="https://res.cloudinary.com/onedebeos/image/upload/v1598883521/which-wifi/Group_8which-wifi_dfrzhc.png"
         />
       </Head>
       <NextSeo
@@ -70,6 +70,10 @@ const MyApp: React.FC<CompProps> = ({ Component, pageProps }) => {
             {
               url:
                 "https://res.cloudinary.com/onedebeos/image/upload/v1598883521/which-wifi/Group_8which-wifi_dfrzhc.svg",
+            },
+            {
+              url:
+                "https://res.cloudinary.com/onedebeos/image/upload/v1598883521/which-wifi/Group_8which-wifi_dfrzhc.png",
             },
           ],
           site_name: "WhichWiFi",
