@@ -456,8 +456,8 @@ export const searchCriteria = [
       },
 
       {
-        value: "Fiberone",
-        label: "Fiberone",
+        value: "FibreOne",
+        label: "FibreOne",
       },
       {
         value: "9mobile",
