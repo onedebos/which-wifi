@@ -198,12 +198,18 @@ const LeaveAReview = ({ closeModal, mutate, reviews }) => {
             <div className="flex justify-end pt-2">
               <button
                 type="submit"
-                disabled={loading ? false : null}
-                className={`${
-                  loading ? "p-2" : "p-3"
-                } px-4 btn-blue-1000 rounded-lg text-white hover:bg-indigo-400 focus:outline-none w-full`}
+                disabled={loading || showSuccess ? true : null}
+                className={`${loading ? "p-2" : "p-3"} ${
+                  showSuccess ? "bg-green-600" : "btn-blue-1000"
+                } px-4 rounded-lg text-white hover:bg-indigo-400 focus:outline-none w-full`}
               >
-                {loading ? <span id="loading"></span> : "Share review!"}
+                {loading ? (
+                  <span id="loading"></span>
+                ) : showSuccess ? (
+                  showSuccess
+                ) : (
+                  "Share review!"
+                )}
               </button>
             </div>
           </form>
