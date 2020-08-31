@@ -5,7 +5,8 @@ import { configureStore, Action } from "@reduxjs/toolkit";
 import reviewsSliceReducer from "../utils/slices/reviewsSlice";
 import { ThunkAction } from "redux-thunk";
 import { ReviewState } from "../utils/slices/reviewsSlice";
-import { removeHiddenAttrOnAreas } from "../utils/helpers";
+import { NextSeo } from "next-seo";
+
 export type AppThunk = ThunkAction<void, ReviewState, unknown, Action<string>>;
 
 export const store = configureStore({
@@ -29,6 +30,40 @@ const MyApp: React.FC<CompProps> = ({ Component, pageProps }) => {
           rel="stylesheet"
         />
       </Head>
+      <NextSeo
+        title="Find the best WiFi providers in Lagos with WhichWiFi"
+        description="WhichWiFi allows you find the best WiFi in your location based on reviews."
+        canonical="https://www.whichwifi.com/"
+        openGraph={{
+          url: "https://whichwifi.com",
+          title:
+            "Find the best WiFi providers in Lagos with WhichWiFi | Spend wisely, avoid stories.",
+          description:
+            "WhichWiFi allows you find the best WiFi in your location based on reviews. | Spend wisely, avoid stories.",
+          images: [
+            {
+              url:
+                "https://res.cloudinary.com/onedebeos/image/upload/v1598883521/which-wifi/Group_8which-wifi_dfrzhc.svg",
+              width: 800,
+              height: 600,
+              alt: "WhichWiFi Lagos",
+            },
+            {
+              url:
+                "https://res.cloudinary.com/onedebeos/image/upload/v1598883590/which-wifi/Group_8which-wifi_1_tzjb4b.svg",
+              width: 900,
+              height: 800,
+              alt: "WhichWiFi Lagos",
+            },
+          ],
+          site_name: "WhichWiFi",
+        }}
+        twitter={{
+          handle: "@whichwifi",
+          site: "@whichwifi",
+          cardType: "summary_large_image",
+        }}
+      />
       <Component {...pageProps} />
     </Provider>
   );

@@ -29,8 +29,8 @@ const LeaveAReview = ({ closeModal, mutate, reviews }) => {
     setShowError("");
     setLoading(true);
     try {
-      mutate("/api/getreviews", { ...reviews, data }, false);
       await axios.post(postReviewUrl, data);
+      mutate("/api/getreviews");
       setLoading(false);
       setShowSuccess("Review posted!");
     } catch (error) {
