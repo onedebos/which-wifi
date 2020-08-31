@@ -163,7 +163,7 @@ const LeaveAReview = ({ closeModal, mutate, reviews }) => {
                 as={<ReactStars />}
                 name="stars"
                 control={control}
-                defaultValue="3"
+                defaultValue={3}
                 rules={{ required: true }}
                 className="focus:outline-none"
               />
