@@ -5,10 +5,14 @@ import { capitalize } from "../utils/helpers";
 import moment from "moment";
 import ReactStars from "react-rating-stars-component";
 
-const LatestReviews = ({ reviews, loading }) => {
+const LatestReviews = ({ reviews, loading, darkMode }) => {
   return (
     <div className="px-10 my-6 lg:max-w-5xl m-auto min-h-screen">
-      <h1 className="text-3xl font-semibold text-gray-800 mb-3">
+      <h1
+        className={`text-3xl font-semibold ${
+          !darkMode ? "text-gray-800" : "text-gray-500"
+        } mb-3`}
+      >
         Latest reviews
       </h1>
 
@@ -26,7 +30,9 @@ const LatestReviews = ({ reviews, loading }) => {
             } = review;
             return (
               <div
-                className="bg-white rounded-md shadow-md px-6 pt-3 pb-6 lg:max-w-3xl mb-2"
+                className={`${
+                  !darkMode ? "bg-white" : "bg-blue-900 dark-txt"
+                } rounded-md shadow-md px-6 pt-3 pb-6 lg:max-w-3xl mb-2`}
                 key={uuidv4()}
               >
                 <div className="sm:flex justify-between">

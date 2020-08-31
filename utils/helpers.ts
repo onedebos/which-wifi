@@ -86,10 +86,7 @@ export const searchCriteria = [
         value: "dopemu",
         label: "Dopemu",
       },
-      {
-        value: "e-centre food court",
-        label: "E-Centre Food Court",
-      },
+
       {
         value: "egbeda",
         label: "Egbeda",
@@ -129,10 +126,6 @@ export const searchCriteria = [
       {
         value: "igbo efon",
         label: "Igbo Efon",
-      },
-      {
-        value: "ijaiye",
-        label: "Ijaiye",
       },
       {
         value: "ijaiye",

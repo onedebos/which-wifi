@@ -23,6 +23,7 @@ ReactGA.initialize("UA-169634848-4");
 
 export default function IndexPage() {
   const [closeModal, setCloseModal] = useState<boolean>(true);
+  const [darkMode, setDarkMode] = useState<boolean>(true);
   const [openSayHiModal, setOpenSayHiModal] = useState<boolean>(false);
 
   const dispatch = useDispatch();
@@ -104,8 +105,16 @@ export default function IndexPage() {
     dispatch(setReviews(reviews.reviews));
   };
 
+  const enableDarkMode = () => {
+    if (darkMode) {
+      setDarkMode(false);
+    } else {
+      setDarkMode(true);
+    }
+  };
+
   return (
-    <div className="lg:max-w-full bg-white">
+    <div className={`lg:max-w-full ${!darkMode ? "bg-white" : "dark-bg"}`}>
       <NextSeo
         title="Find the best WiFi providers in Lagos with WhichWiFi"
         description="WhichWiFi allows you find the best WiFi in your location based on reviews."
@@ -151,8 +160,10 @@ export default function IndexPage() {
       <Nav
         openClosedModal={openClosedModal}
         openSayHiModal={openSayHiModalFn}
+        enableDarkMode={enableDarkMode}
+        darkMode={darkMode}
       />
-      <Home />
+      <Home darkMode={darkMode} />
       <Search
         openClosedModal={openClosedModal}
         handleAreaToFind={handleAreaToFind}
@@ -163,21 +174,24 @@ export default function IndexPage() {
         providerToFind={providerToFind}
         resetFilters={handleResetFilter}
         reviews={reviewsToShow}
+        darkMode={darkMode}
       />
       <LatestReviews
         reviews={!reviewsToShow ? null : reviewsToShow}
         loading={!reviews ? true : false}
+        darkMode={darkMode}
       />
       {closeModal ? null : (
         <LeaveAReview
           closeModal={openClosedModal}
           mutate={mutate}
-          reviews={!reviews ? null : reviews}
+          darkMode={darkMode}
         />
       )}
-      {/* <LeaveAReview closeModal={openClosedModal} /> */}
-      {openSayHiModal ? <SayHi openSayHiModal={openSayHiModalFn} /> : null}
-      <Footer />
+      {openSayHiModal ? (
+        <SayHi openSayHiModal={openSayHiModalFn} darkMode={darkMode} />
+      ) : null}
+      <Footer darkMode={darkMode} />
     </div>
   );
 }

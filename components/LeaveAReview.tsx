@@ -15,7 +15,7 @@ export interface ReviewStateObj {
   stars?: string;
 }
 
-const LeaveAReview = ({ closeModal, mutate, reviews }) => {
+const LeaveAReview = ({ closeModal, mutate, darkMode }) => {
   const [loading, setLoading] = useState<boolean>(false);
   const [countText, setCountText] = useState<string>("");
   const [charLeft, setCharLeft] = useState<Number>(280);
@@ -71,7 +71,11 @@ const LeaveAReview = ({ closeModal, mutate, reviews }) => {
         onClick={closeModal}
       ></div>
 
-      <div className="modal-container bg-white w-11/12 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto">
+      <div
+        className={`modal-container ${
+          !darkMode ? "bg-white" : "bg-blue-900"
+        } w-11/12 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto`}
+      >
         <div className="modal-close absolute top-0 right-0 cursor-pointer flex flex-col items-center mt-4 mr-4 text-white text-sm z-50">
           <span className="text-sm"></span>
         </div>
@@ -79,7 +83,11 @@ const LeaveAReview = ({ closeModal, mutate, reviews }) => {
         <div className="modal-content py-4 text-left px-6">
           <div className="flex justify-between items-center pb-3">
             <div>
-              <p className="text-2xl font-bold text-blue-1000">
+              <p
+                className={`text-2xl font-bold ${
+                  !darkMode ? "text-blue-1000" : "dark-txt"
+                }`}
+              >
                 Help others decide on WhichWifi by leaving a review.
               </p>
               <p
@@ -111,7 +119,9 @@ const LeaveAReview = ({ closeModal, mutate, reviews }) => {
               <input
                 name="name"
                 ref={register({ required: true })}
-                className="w-full border border-1 rounded-sm focus:border-indigo-600 mb-1 p-2 focus:outline-none"
+                className={`${
+                  !darkMode ? "bg-white" : "dark-bg"
+                } w-full border border-1 rounded-sm focus:border-indigo-600 mb-1 p-2 focus:outline-none`}
                 placeholder="your name*"
               />
             </div>
@@ -147,14 +157,22 @@ const LeaveAReview = ({ closeModal, mutate, reviews }) => {
               <input
                 name="estateName"
                 ref={register}
-                className="w-full border border-1 rounded-sm focus:border-indigo-600 mt-1 p-2 focus:outline-none"
+                className={`${
+                  !darkMode ? "bg-white" : "dark-bg"
+                } w-full border border-1 rounded-sm focus:border-indigo-600 mt-1 p-2 focus:outline-none`}
                 placeholder="enter your Estate(optional)"
               />
             </div>
             <div className="mt-1 flex py-2">
-              <label className="mr-2 opacity-75">
+              <label
+                className={`mr-2 opacity-75 ${
+                  !darkMode ? "text-black" : "dark-txt"
+                }`}
+              >
                 Give{" "}
-                <span className="text-blue-1000">
+                <span
+                  className={`${!darkMode ? "text-blue-1000" : "dark-txt"}`}
+                >
                   {providers ? providers.value : "them"}
                 </span>{" "}
                 a rating
@@ -175,7 +193,9 @@ const LeaveAReview = ({ closeModal, mutate, reviews }) => {
               <textarea
                 name="experience"
                 ref={register({ required: true })}
-                className="w-full border border-1 rounded-sm focus:border-indigo-600 mt-1 p-2 focus:outline-none"
+                className={`${
+                  !darkMode ? "bg-white" : "dark-bg"
+                } w-full border border-1 rounded-sm focus:border-indigo-600 mt-1 p-2 focus:outline-none`}
                 placeholder={
                   providers
                     ? `tell others your experience with ${providers.value}*`

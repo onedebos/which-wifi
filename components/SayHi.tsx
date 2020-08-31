@@ -1,4 +1,4 @@
-const SayHi = ({ openSayHiModal }) => {
+const SayHi = ({ openSayHiModal, darkMode }) => {
   return (
     <div className="modal fixed w-full h-full top-0 left-0 flex items-center justify-center">
       <div
@@ -6,14 +6,22 @@ const SayHi = ({ openSayHiModal }) => {
         onClick={openSayHiModal}
       ></div>
 
-      <div className="modal-container bg-white w-11/12 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto py-10">
+      <div
+        className={`modal-container ${
+          !darkMode ? "bg-white" : "bg-blue-900"
+        } w-11/12 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto py-10`}
+      >
         <div className="modal-open absolute top-0 right-0 cursor-pointer flex flex-col items-center mt-4 mr-4 text-white text-sm z-50">
           <span className="text-sm"></span>
         </div>
 
         <div className="modal-content py-4 text-left px-6">
           <div className="flex justify-between items-center pb-3">
-            <p className="text-2xl font-bold text-blue-1000">
+            <p
+              className={`text-2xl font-bold ${
+                !darkMode ? "text-blue-1000" : "dark-txt"
+              }`}
+            >
               Noticed something we should fix? Reach out.
             </p>
             <div className="modal-open cursor-pointer z-50">
@@ -31,7 +39,11 @@ const SayHi = ({ openSayHiModal }) => {
             </div>
           </div>
 
-          <p className="text-xl">whichwifi.ng@gmail.com</p>
+          <p
+            className={`${!darkMode ? "text-black" : "text-gray-500"} text-xl`}
+          >
+            whichwifi.ng@gmail.com
+          </p>
         </div>
       </div>
     </div>

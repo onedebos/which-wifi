@@ -13,6 +13,7 @@ const Search = ({
   providerToFind,
   resetFilters,
   reviews,
+  darkMode,
 }) => {
   const customStyles = {
     option: (provided, state) => ({
@@ -93,7 +94,9 @@ const Search = ({
           </svg>
         </button>
         <button
-          className="mx-2 sm:hidden btn-blue-1000 w-full shadow-md text-center text-white font-semibold py-2 rounded-md flex m-auto justify-center"
+          className={`mx-2 sm:hidden ${
+            !darkMode ? "btn-blue-1000 text-white" : "bg-blue-900 dark-txt"
+          } w-full shadow-md text-center  font-semibold py-2 rounded-md flex m-auto justify-center`}
           onClick={resetFilters}
         >
           <span>Reset</span>
@@ -110,10 +113,16 @@ const Search = ({
           </svg>
         </button>
       </div>
-      <p className="text-center mt-6">
+      <p
+        className={`${
+          !darkMode ? "text-black" : "text-gray-500"
+        } text-center mt-6`}
+      >
         Help others by{" "}
         <span
-          className="text-blue-1000 font-medium cursor-pointer"
+          className={`${
+            !darkMode ? "text-blue-1000" : "dark-txt"
+          } font-medium cursor-pointer`}
           onClick={openClosedModal}
         >
           Leaving a review
