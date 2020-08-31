@@ -12,31 +12,50 @@ const Footer = () => {
         <div className="flex flex-col mt-4 md:mt-0 flex-1">
           <h1 className="text-white font-bold">WiFi providers</h1>
           <h3 className="text-gray-500">
-            <a href="https://blog.adebola.dev">Tizeti - Wifi.com.ng</a>
+            <a href="https://wifi.com.ng/">Tizeti - Wifi.com.ng</a>
           </h3>
           <h3 className="text-gray-500">
-            <a href="https://adebola.dev">Ngcom</a>
+            <a href="https://ngcomnetworks.com">Ngcom</a>
+          </h3>
+
+          <h3 className="text-gray-500">
+            <a href="https://www.ipnxnigeria.net/">ipNX</a>
+          </h3>
+          <h3 className="text-gray-500">
+            <a href="https://smile.com.ng/">Smile</a>
+          </h3>
+
+          <h3 className="text-gray-500">
+            <a href="https://spectranet.com.ng/">Spectranet</a>
           </h3>
         </div>
         <div className="flex flex-col mt-4 md:mt-0 flex-1">
           <h1 className="text-white font-bold">Most reviewed areas</h1>
           <h3 className="text-gray-500">
-            <a href="https://blog.adebola.dev">Lekki Phase 1</a>
+            <a href="https://en.wikipedia.org/wiki/Lekki">Lekki Phase 1</a>
           </h3>
           <h3 className="text-gray-500">
-            <a href="https://adebola.dev">Ikate</a>
+            <a href="https://www.neighbourhoodreview.com/a-comprehensive-review-of-ikate/">
+              Ikate
+            </a>
           </h3>
           <h3 className="text-gray-500">
-            <a href="https://adebola.dev">Chevron Drive</a>
+            <a href="https://en.wikipedia.org/wiki/Yaba,_Lagos">Yaba</a>
           </h3>
         </div>
         <div className="flex flex-col mt-4 md:mt-0 flex-1">
           <h1 className="text-white font-bold">More</h1>
           <h3 className="text-gray-500">
-            <a href="https://blog.adebola.dev">TypeFastr</a>
+            <a href="">WhichWiFi</a>
           </h3>
           <h3 className="text-gray-500">
-            <a href="https://filelockrr.com">Other Products</a>
+            <a href="">Affordable Fast internet in Lagos</a>
+          </h3>
+          <h3 className="text-gray-500">
+            <a href="">Best internet in Lagos</a>
+          </h3>
+          <h3 className="text-gray-500">
+            <a href="">Review of internet providers in Lagos</a>
           </h3>
         </div>
       </div>

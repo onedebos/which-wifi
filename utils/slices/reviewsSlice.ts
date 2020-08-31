@@ -9,15 +9,21 @@ export interface ReviewStateObj {
 }
 
 export interface ReviewState {
-  reviews: [];
+  reviewsToShow: [];
   review: object;
   loading: boolean;
+  areaToFind: any;
+  estateToFind: any;
+  providerToFind: any;
 }
 
 const initialState: ReviewState = {
-  reviews: [],
+  reviewsToShow: [],
   loading: false,
   review: {},
+  areaToFind: "",
+  estateToFind: "",
+  providerToFind: "",
 };
 
 const reviewsSlice = createSlice({
@@ -28,15 +34,34 @@ const reviewsSlice = createSlice({
       state.loading = payload;
     },
     setReviews: (state, { payload }: any) => {
-      state.reviews = payload;
+      if (payload) {
+        const sortedReviews = payload.slice().sort((a, b) => b.date - a.date);
+        state.reviewsToShow = sortedReviews;
+      }
     },
     setReviewToPost: (state, { payload }: PayloadAction<object>) => {
       state.review = payload;
     },
+    setAreaToFind: (state, { payload }: PayloadAction<any>) => {
+      state.areaToFind = payload;
+    },
+    setEstateToFind: (state, { payload }: PayloadAction<any>) => {
+      state.estateToFind = payload;
+    },
+    setProviderToFind: (state, { payload }: PayloadAction<any>) => {
+      state.providerToFind = payload;
+    },
   },
 });
 
-export const { setLoading, setReviews, setReviewToPost } = reviewsSlice.actions;
+export const {
+  setLoading,
+  setReviews,
+  setReviewToPost,
+  setAreaToFind,
+  setEstateToFind,
+  setProviderToFind,
+} = reviewsSlice.actions;
 
 export default reviewsSlice.reducer;
 

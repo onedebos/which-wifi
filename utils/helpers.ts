@@ -430,33 +430,33 @@ export const searchCriteria = [
     criteria: "Search by provider",
     options: [
       {
-        value: "mtn",
+        value: "MTN",
         label: "MTN",
       },
       {
-        value: "tizeti",
+        value: "Tizeti - Wifi.com.ng",
         label: "Tizeti - Wifi.com.ng",
       },
       {
-        value: "swift",
+        value: "Swift",
         label: "Swift",
       },
       {
-        value: "spectranet",
+        value: "Spectranet",
         label: "Spectranet",
       },
 
       {
-        value: "glo",
+        value: "Glo",
         label: "Glo",
       },
       {
-        value: "ngcom",
+        value: "Ngcom",
         label: "Ngcom",
       },
 
       {
-        value: "fiberone",
+        value: "Fiberone",
         label: "Fiberone",
       },
       {
@@ -464,8 +464,16 @@ export const searchCriteria = [
         label: "9mobile",
       },
       {
-        value: "airtel",
+        value: "Airtel",
         label: "Airtel",
+      },
+      {
+        value: "Smile",
+        label: "Smile",
+      },
+      {
+        value: "iPnX",
+        label: "iPnX",
       },
     ],
   },
@@ -475,3 +483,7 @@ export const capitalize = (str: string) => {
   const splitStr = str.split("");
   return splitStr[0].toString().toUpperCase() + str.slice(1);
 };
+
+const baseUrl = "http://localhost:3000";
+
+export const postReviewUrl = `${baseUrl}/api/postreview`;

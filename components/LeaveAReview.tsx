@@ -1,35 +1,65 @@
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { useState, useEffect } from "react";
-import { searchCriteria } from "../utils/helpers";
-import { v4 as uuidv4 } from "uuid";
-import { capitalize } from "../utils/helpers";
+import { searchCriteria, postReviewUrl } from "../utils/helpers";
+import Select from "react-select";
+import axios from "axios";
+import { reviewsSelector } from "../utils/slices/reviewsSlice";
 
-const LeaveAReview = ({ closeModal }) => {
+export interface ReviewStateObj {
+  provider: string;
+  reviewBody: string;
+  estateName: string;
+  area: string;
+  name: string;
+  date?: string;
+}
+
+const LeaveAReview = ({ closeModal, mutate, reviews }) => {
   const [loading, setLoading] = useState<boolean>(false);
-  const [providers, setProviders] = useState<string>("");
   const [countText, setCountText] = useState<string>("");
   const [charLeft, setCharLeft] = useState<Number>(280);
-  const { register, handleSubmit, watch, errors } = useForm();
+  const { register, handleSubmit, watch, errors, control } = useForm();
+  const [showSuccess, setShowSuccess] = useState<string>("");
+  const [showError, setShowError] = useState<string>("");
+
+  const providers = watch("provider");
+
+  const sendDataToDb = async (data: ReviewStateObj) => {
+    setShowSuccess("");
+    setShowError("");
+    setLoading(true);
+    try {
+      mutate("/api/getreviews", { ...reviews, data }, false);
+      await axios.post(postReviewUrl, data);
+      setLoading(false);
+      setShowSuccess("Review posted!");
+    } catch (error) {
+      setShowError("Something went wrong on our end.");
+      setLoading(false);
+    }
+  };
 
   const onSubmit = (data) => {
-    if (data.estateName) {
-      capitalize(data.estateName);
-    }
-    console.log(data);
+    const review: ReviewStateObj = {
+      reviewBody: data.experience,
+      estateName: data.estateName,
+      area: data.area.value,
+      provider: data.provider.value,
+      name: data.name,
+    };
+    sendDataToDb(review);
   };
 
   useEffect(() => {
     let mounted = true;
     if (mounted) {
-      // setProviders(watch("provider"));
-      // console.log(providers);
       setCountText(watch("experience"));
       setCharLeft(280 - countText.length);
     }
     return () => {
       mounted = false;
     };
-  }, []);
+  }, [watch]);
 
   return (
     <div className="modal fixed w-full h-full top-0 left-0 flex items-center justify-center">
@@ -56,9 +86,19 @@ const LeaveAReview = ({ closeModal }) => {
 
         <div className="modal-content py-4 text-left px-6">
           <div className="flex justify-between items-center pb-3">
-            <p className="text-2xl font-bold text-blue-1000">
-              Help others make better decisions by leaving a review.
-            </p>
+            <div>
+              <p className="text-2xl font-bold text-blue-1000">
+                Help others decide on WhichWifi by leaving a review.
+              </p>
+              <p
+                className={`text-sm ${
+                  showSuccess.length > 1 ? "text-green-700" : "text-red-600"
+                } font-medium transition ease-in-out duration-300`}
+              >
+                {showSuccess || (showError && showSuccess) || showError}
+              </p>
+            </div>
+
             <div className="modal-close cursor-pointer z-50">
               <button onClick={closeModal} className="focus:outline-none">
                 <svg
@@ -76,45 +116,38 @@ const LeaveAReview = ({ closeModal }) => {
 
           <form onSubmit={handleSubmit(onSubmit)}>
             <div>
-              <select
+              <input
+                name="name"
                 ref={register({ required: true })}
-                name="provider"
-                className="w-full border border-1 rounded-sm focus:border-indigo-600 mt-1 p-2 bg-white"
-              >
-                {searchCriteria[2].options.map((provider) => {
-                  return (
-                    <option
-                      key={uuidv4()}
-                      value={provider.value}
-                      className="text-blue-1000"
-                      placeholder="select a provider"
-                    >
-                      {provider.label}
-                    </option>
-                  );
-                })}
-              </select>
-              {errors.provider && <span>This field is required</span>}
+                className="w-full border border-1 rounded-sm focus:border-indigo-600 mb-1 p-2 "
+                placeholder="your name*"
+              />
             </div>
             <div>
-              <select
-                ref={register({ required: true })}
+              <Controller
+                as={Select}
+                options={searchCriteria[2].options}
+                name="provider"
+                control={control}
+                defaultValue="MTN"
+                rules={{ required: true }}
+                placeholder="select a provider*"
+              />
+
+              {errors.provider && <span>This field is required</span>}
+            </div>
+
+            <div className="mt-1">
+              <Controller
+                as={Select}
+                options={searchCriteria[0].options}
                 name="area"
-                className="w-full border border-1 rounded-sm focus:border-indigo-600 mt-1 p-2 bg-white"
-              >
-                {searchCriteria[0].options.map((provider) => {
-                  return (
-                    <option
-                      key={uuidv4()}
-                      value={provider.value}
-                      className="text-blue-1000"
-                      placeholder="select a provider"
-                    >
-                      {provider.label}
-                    </option>
-                  );
-                })}
-              </select>
+                control={control}
+                defaultValue="Abraham Adesanya Estate"
+                rules={{ required: true }}
+                placeholder="select an area*"
+              />
+
               {errors.area && <span>This field is required</span>}
             </div>
 
@@ -134,7 +167,7 @@ const LeaveAReview = ({ closeModal }) => {
                 className="w-full border border-1 rounded-sm focus:border-indigo-600 mt-1 p-2"
                 placeholder={
                   providers
-                    ? `tell us your experience with ${providers}`
+                    ? `tell us your experience with ${providers.value}*`
                     : `tell us your experience`
                 }
                 maxLength={280}
