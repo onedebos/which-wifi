@@ -108,7 +108,7 @@ const LeaveAReview = ({ closeModal, mutate, reviews }) => {
               <input
                 name="name"
                 ref={register({ required: true })}
-                className="w-full border border-1 rounded-sm focus:border-indigo-600 mb-1 p-2 "
+                className="w-full border border-1 rounded-sm focus:border-indigo-600 mb-1 p-2 focus:outline-none"
                 placeholder="your name*"
               />
             </div>
@@ -144,7 +144,7 @@ const LeaveAReview = ({ closeModal, mutate, reviews }) => {
               <input
                 name="estateName"
                 ref={register}
-                className="w-full border border-1 rounded-sm focus:border-indigo-600 mt-1 p-2"
+                className="w-full border border-1 rounded-sm focus:border-indigo-600 mt-1 p-2 focus:outline-none"
                 placeholder="enter your Estate(optional)"
               />
             </div>
@@ -153,7 +153,7 @@ const LeaveAReview = ({ closeModal, mutate, reviews }) => {
               <textarea
                 name="experience"
                 ref={register({ required: true })}
-                className="w-full border border-1 rounded-sm focus:border-indigo-600 mt-1 p-2"
+                className="w-full border border-1 rounded-sm focus:border-indigo-600 mt-1 p-2 focus:outline-none"
                 placeholder={
                   providers
                     ? `tell us your experience with ${providers.value}*`

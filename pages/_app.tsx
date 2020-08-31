@@ -40,9 +40,9 @@ const MyApp: React.FC<CompProps> = ({ Component, pageProps }) => {
       <NextSeo
         title="Find the best WiFi providers in Lagos with WhichWiFi"
         description="WhichWiFi allows you find the best WiFi in your location based on reviews."
-        canonical="https://www.whichwifi.com/"
+        canonical="https://www.whichwifi.work"
         openGraph={{
-          url: "https://whichwifi.com",
+          url: "https://whichwifi.work",
           title:
             "Find the best WiFi providers in Lagos with WhichWiFi | Spend wisely, avoid stories.",
           description:
