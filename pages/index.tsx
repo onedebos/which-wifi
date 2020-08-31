@@ -23,7 +23,7 @@ ReactGA.initialize("UA-169634848-4");
 
 export default function IndexPage() {
   const [closeModal, setCloseModal] = useState<boolean>(true);
-  const [darkMode, setDarkMode] = useState<boolean>(true);
+  const [darkMode, setDarkMode] = useState<boolean>(false);
   const [openSayHiModal, setOpenSayHiModal] = useState<boolean>(false);
 
   const dispatch = useDispatch();
