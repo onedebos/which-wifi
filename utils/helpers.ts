@@ -484,6 +484,9 @@ export const capitalize = (str: string) => {
   return splitStr[0].toString().toUpperCase() + str.slice(1);
 };
 
-const baseUrl = "http://localhost:3000";
+const baseUrl =
+  process.env.NODE_ENV !== "production"
+    ? "http://localhost:3000"
+    : "https://which-wifi.vercel.app";
 
 export const postReviewUrl = `${baseUrl}/api/postreview`;
