@@ -10,6 +10,14 @@ body {
 
 /* Write you own custom component styles here */
 
+.dark-bg {
+  background-color: #15202b;
+}
+
+.dark-txt {
+  color: #1da1f2;
+}
+
 .hamburger {
   cursor: pointer;
   width: 48px;

@@ -39,7 +39,7 @@ const LatestReviews = ({ reviews, loading }) => {
                 <div className="flex mt-4">
                   <ReactStars
                     count={5}
-                    value={stars}
+                    value={parseInt(stars)}
                     activeColor="#ffd700"
                     edit={false}
                   />

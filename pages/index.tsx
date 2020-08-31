@@ -105,7 +105,7 @@ export default function IndexPage() {
   };
 
   return (
-    <div className="lg:max-w-full">
+    <div className="lg:max-w-full bg-white">
       <NextSeo
         title="Find the best WiFi providers in Lagos with WhichWiFi"
         description="WhichWiFi allows you find the best WiFi in your location based on reviews."

@@ -112,7 +112,10 @@ const Search = ({
       </div>
       <p className="text-center mt-6">
         Help others by{" "}
-        <span className="text-blue-1000 font-medium" onClick={openClosedModal}>
+        <span
+          className="text-blue-1000 font-medium cursor-pointer"
+          onClick={openClosedModal}
+        >
           Leaving a review
         </span>
       </p>

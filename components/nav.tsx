@@ -9,10 +9,6 @@ export default function Nav({ openClosedModal, openSayHiModal }) {
   };
 
   return (
-    // <nav className="bg-white px-8 py-4 shadow-md">
-    //   <div className="w-full flex flex-col fixed pin-t pin-r pin-l lg:max-w-full m-auto z-20">
-    //     <div className="text-blue-1000 text-2xl font-semibold">WhichWiFi</div>
-
     <div className="bg-white px-8 py-4 shadow-md">
       <header
         id="top"
@@ -20,11 +16,7 @@ export default function Nav({ openClosedModal, openSayHiModal }) {
       >
         <nav
           id="site-menu"
-          className={`flex flex-col sm:flex-row w-full justify-around items-center px-4 sm:px-6 py-1 
-            
-              ? "bg-gray-200 md:bg-white transition duration-300 ease-in-out"
-              
-          }`}
+          className="flex flex-col sm:flex-row w-full justify-around items-center px-4 sm:px-6 py-1"
         >
           <div className="w-full sm:w-auto self-start sm:self-center flex flex-row sm:flex-none flex-no-wrap justify-between items-center">
             <a href="/" className="py-1">
