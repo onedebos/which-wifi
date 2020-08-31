@@ -36,6 +36,11 @@ const MyApp: React.FC<CompProps> = ({ Component, pageProps }) => {
           href="/favicon.png"
         ></link>
         <meta name="theme-color" content="#0873FA" />
+        <meta
+          name="image"
+          property="og:image"
+          content="https://res.cloudinary.com/onedebeos/image/upload/v1598883521/which-wifi/Group_8which-wifi_dfrzhc.svg"
+        />
       </Head>
       <NextSeo
         title="Find the best WiFi providers in Lagos with WhichWiFi"
