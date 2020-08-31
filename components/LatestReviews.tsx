@@ -27,9 +27,11 @@ const LatestReviews = ({ reviews, loading }) => {
                 className="bg-white rounded-md shadow-md px-6 pt-3 pb-6 lg:max-w-3xl mb-2"
                 key={uuidv4()}
               >
-                <div className="flex justify-between">
+                <div className="sm:flex justify-between">
                   <div className="font-medium">{provider}</div>
-                  <div className="text-gray-600">{moment(date).fromNow()}</div>
+                  <div className="text-sm sm:text-md text-gray-600">
+                    {moment(date).fromNow()}
+                  </div>
                 </div>
                 <div className="mt-4">{reviewBody}</div>
                 <p className="text-sm mt-4 font-light italic text-gray-600">
