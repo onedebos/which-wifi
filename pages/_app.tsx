@@ -40,7 +40,8 @@ const MyApp: React.FC<CompProps> = ({ Component, pageProps }) => {
           property="og:image"
           content="https://res.cloudinary.com/onedebeos/image/upload/v1598883521/which-wifi/Group_8which-wifi_dfrzhc.png"
         />
-        <meta property="og:type" content="website"></meta>
+        <meta property="og:type" content="website" />
+        <meta name="author" content="Adebola Adeniran" />
       </Head>
 
       <Component {...pageProps} />
