@@ -12,6 +12,9 @@ const Footer = () => {
         <div className="flex flex-col mt-4 md:mt-0 flex-1">
           <h1 className="text-white font-bold">WiFi providers</h1>
           <h3 className="text-gray-500">
+            <a href="https://fob.ng">FiberOne</a>
+          </h3>
+          <h3 className="text-gray-500">
             <a href="https://wifi.com.ng/">Tizeti - Wifi.com.ng</a>
           </h3>
           <h3 className="text-gray-500">
