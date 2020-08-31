@@ -1,6 +1,6 @@
 import { useForm, Controller } from "react-hook-form";
 import { useState, useEffect } from "react";
-import { searchCriteria, postReviewUrl } from "../utils/helpers";
+import { searchCriteria } from "../utils/helpers";
 import Select from "react-select";
 import axios from "axios";
 import { reviewsSelector } from "../utils/slices/reviewsSlice";
