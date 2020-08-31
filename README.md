@@ -13,7 +13,7 @@ A WiFi review service for Lagos, Nigeria.
 
 ## Live
 
-[Click here](https://type-fastr.netlify.app)
+[Click here](https://which-wifi.vercel.app/)
 
 ## Getting Started
 
