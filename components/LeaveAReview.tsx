@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { searchCriteria } from "../utils/helpers";
 import Select from "react-select";
 import axios from "axios";
-import { reviewsSelector } from "../utils/slices/reviewsSlice";
+import ReactStars from "react-rating-stars-component";
 
 export interface ReviewStateObj {
   provider: string;
@@ -12,6 +12,7 @@ export interface ReviewStateObj {
   area: string;
   name: string;
   date?: string;
+  stars?: string;
 }
 
 const LeaveAReview = ({ closeModal, mutate, reviews }) => {
@@ -46,7 +47,9 @@ const LeaveAReview = ({ closeModal, mutate, reviews }) => {
       area: data.area.value,
       provider: data.provider.value,
       name: data.name,
+      stars: data.stars,
     };
+
     sendDataToDb(review);
   };
 
@@ -148,6 +151,25 @@ const LeaveAReview = ({ closeModal, mutate, reviews }) => {
                 placeholder="enter your Estate(optional)"
               />
             </div>
+            <div className="mt-1 flex py-2">
+              <label className="mr-2 opacity-75">
+                Give{" "}
+                <span className="text-blue-1000">
+                  {providers ? providers.value : "them"}
+                </span>{" "}
+                a rating
+              </label>
+              <Controller
+                as={<ReactStars />}
+                name="stars"
+                control={control}
+                defaultValue="3"
+                rules={{ required: true }}
+                className="focus:outline-none"
+              />
+
+              {errors.stars && <span>This field is required</span>}
+            </div>
 
             <div>
               <textarea
@@ -156,8 +178,8 @@ const LeaveAReview = ({ closeModal, mutate, reviews }) => {
                 className="w-full border border-1 rounded-sm focus:border-indigo-600 mt-1 p-2 focus:outline-none"
                 placeholder={
                   providers
-                    ? `tell us your experience with ${providers.value}*`
-                    : `tell us your experience`
+                    ? `tell others your experience with ${providers.value}*`
+                    : `tell others your experience`
                 }
                 maxLength={280}
               />

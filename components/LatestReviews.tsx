@@ -3,6 +3,7 @@ import { ReviewStateObj } from "./LeaveAReview";
 import { v4 as uuidv4 } from "uuid";
 import { capitalize } from "../utils/helpers";
 import moment from "moment";
+import ReactStars from "react-rating-stars-component";
 
 const LatestReviews = ({ reviews, loading }) => {
   return (
@@ -21,6 +22,7 @@ const LatestReviews = ({ reviews, loading }) => {
               estateName,
               name,
               date,
+              stars,
             } = review;
             return (
               <div
@@ -34,7 +36,18 @@ const LatestReviews = ({ reviews, loading }) => {
                   </div>
                 </div>
                 <div className="mt-4">{reviewBody}</div>
-                <p className="text-sm mt-4 font-light italic text-gray-600">
+                <div className="flex mt-4">
+                  <ReactStars
+                    count={5}
+                    value={stars}
+                    activeColor="#ffd700"
+                    edit={false}
+                  />
+                  <p className="text-sm text-gray-600 ml-3">
+                    {stars}.0/5.0 stars
+                  </p>
+                </div>
+                <p className="text-sm mt-1 font-light italic text-gray-600">
                   Review by {name ? capitalize(name) : null}
                   {estateName
                     ? `, ${"Estate: " + capitalize(estateName)}`

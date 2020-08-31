@@ -5,7 +5,7 @@ const db = firebase.firestore();
 
 const postReview = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
-    const { provider, reviewBody, estateName, area, name } = req.body;
+    const { provider, reviewBody, estateName, area, name, stars } = req.body;
     const date = Date.now();
 
     await db.collection("reviews").doc().set({
@@ -15,6 +15,7 @@ const postReview = async (req: NextApiRequest, res: NextApiResponse) => {
       area,
       name,
       date,
+      stars,
     });
     return res.status(200).json({
       message: "Successfully created review.",
@@ -25,6 +26,7 @@ const postReview = async (req: NextApiRequest, res: NextApiResponse) => {
         area,
         name,
         date,
+        stars,
       },
     });
   } catch (error) {
