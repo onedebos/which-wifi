@@ -67,6 +67,10 @@ const MyApp: React.FC<CompProps> = ({ Component, pageProps }) => {
               height: 800,
               alt: "WhichWiFi Lagos",
             },
+            {
+              url:
+                "https://res.cloudinary.com/onedebeos/image/upload/v1598883521/which-wifi/Group_8which-wifi_dfrzhc.svg",
+            },
           ],
           site_name: "WhichWiFi",
         }}
