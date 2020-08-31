@@ -14,20 +14,20 @@ const Search = ({
   resetFilters,
   reviews,
 }) => {
-  const [searchOpen, setSearchOpen] = useState(false);
-
   const customStyles = {
     option: (provided, state) => ({
       ...provided,
     }),
   };
 
-  const estates = reviews.map((review) => {
-    return {
-      value: review.estateName,
-      label: review.estateName,
-    };
-  });
+  const estates = reviews
+    .map((review) => {
+      return {
+        value: review.estateName,
+        label: review.estateName,
+      };
+    })
+    .filter((estate) => estate.label.length > 0);
 
   return (
     <>
