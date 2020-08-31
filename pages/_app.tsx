@@ -29,6 +29,13 @@ const MyApp: React.FC<CompProps> = ({ Component, pageProps }) => {
           href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
           rel="stylesheet"
         />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicon.png"
+        ></link>
+        <meta name="theme-color" content="#0873FA" />
       </Head>
       <NextSeo
         title="Find the best WiFi providers in Lagos with WhichWiFi"
