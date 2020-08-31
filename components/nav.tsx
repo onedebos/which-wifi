@@ -36,9 +36,10 @@ export default function Nav({
             </a>
 
             <button
+              type="button"
+              role="button"
               id="menuBtn"
               className="hamburger block sm:hidden focus:outline-none"
-              type="button"
               onClick={navToggle}
             >
               <span className="hamburger__top-bun"></span>
@@ -50,6 +51,8 @@ export default function Nav({
             className="w-full sm:w-auto self-end sm:self-center sm:flex flex-col sm:flex-row items-center h-full py-1 pb-4 sm:py-0 sm:pb-0 hidden"
           >
             <button
+              type="button"
+              role="button"
               onClick={openSayHiModal}
               className={`no-underline ${
                 !darkMode ? "text-gray-700" : "text-gray-500"
@@ -60,6 +63,8 @@ export default function Nav({
 
             <div className="w-full mt-2 md:w-auto md:mt-0 text-center">
               <button
+                type="button"
+                role="button"
                 className={`no-underline ${
                   !darkMode ? "text-gray-700" : "text-gray-500"
                 } border-b-2 border-transparent uppercase tracking-wide font-bold text-xs py-3 focus:outline-none sm:ml-4`}
