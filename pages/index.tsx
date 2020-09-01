@@ -77,15 +77,14 @@ export default function IndexPage() {
   };
 
   const handleEstateToFind = (selected) => {
+    dispatch(setProviderToFind(""));
+    dispatch(setAreaToFind(""));
     const filteredByEstate = reviews.reviews.filter(
       (review) =>
         review.estateName.toLowerCase() == selected.value.toLowerCase()
     );
-
     dispatch(setReviews(filteredByEstate));
     dispatch(setEstateToFind(selected));
-    dispatch(setProviderToFind(""));
-    dispatch(setAreaToFind(""));
   };
 
   const handleProviderToFind = (selected) => {

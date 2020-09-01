@@ -54,7 +54,7 @@ const Search = ({
         >
           <Select
             placeholder={searchCriteria[1].criteria}
-            options={estates.length > 0 ? estates : "loading Estates"}
+            options={estates}
             className="text-blue-800"
             isSearchable
             styles={customStyles}
@@ -83,7 +83,7 @@ const Search = ({
           className="focus:outline-none hidden sm:block"
         >
           <svg
-            className="hidden sm:block hover:text-blue-1000"
+            className="hidden sm:block"
             xmlns="http://www.w3.org/2000/svg"
             width="40"
             height="40"
