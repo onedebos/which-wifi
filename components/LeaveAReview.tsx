@@ -73,7 +73,7 @@ const LeaveAReview = ({ closeModal, mutate, darkMode }) => {
 
       <div
         className={`modal-container ${
-          !darkMode ? "bg-white" : "bg-blue-900"
+          !darkMode ? "bg-white" : "dark-bg"
         } w-11/12 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto`}
       >
         <div className="modal-close absolute top-0 right-0 cursor-pointer flex flex-col items-center mt-4 mr-4 text-white text-sm z-50">
@@ -120,7 +120,7 @@ const LeaveAReview = ({ closeModal, mutate, darkMode }) => {
                 name="name"
                 ref={register({ required: true })}
                 className={`${
-                  !darkMode ? "bg-white" : "dark-bg"
+                  !darkMode ? "bg-white" : "dark-bg text-white"
                 } w-full border border-1 rounded-sm focus:border-indigo-600 mb-1 p-2 focus:outline-none`}
                 placeholder="your name*"
               />
@@ -158,7 +158,7 @@ const LeaveAReview = ({ closeModal, mutate, darkMode }) => {
                 name="estateName"
                 ref={register}
                 className={`${
-                  !darkMode ? "bg-white" : "dark-bg"
+                  !darkMode ? "bg-white" : "dark-bg text-white"
                 } w-full border border-1 rounded-sm focus:border-indigo-600 mt-1 p-2 focus:outline-none`}
                 placeholder="enter your Estate(optional)"
               />
@@ -194,7 +194,7 @@ const LeaveAReview = ({ closeModal, mutate, darkMode }) => {
                 name="experience"
                 ref={register({ required: true })}
                 className={`${
-                  !darkMode ? "bg-white" : "dark-bg"
+                  !darkMode ? "bg-white" : "dark-bg text-white"
                 } w-full border border-1 rounded-sm focus:border-indigo-600 mt-1 p-2 focus:outline-none`}
                 placeholder={
                   providers
