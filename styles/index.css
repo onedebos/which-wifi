@@ -80,6 +80,10 @@ body {
   -webkit-animation: spin 1s ease-in-out infinite;
 }
 
+svg:hover {
+  fill: #0873fa;
+}
+
 @keyframes spin {
   to {
     -webkit-transform: rotate(360deg);

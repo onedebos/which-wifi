@@ -105,7 +105,7 @@ const Search = ({
             width="18"
             height="18"
             viewBox="0 0 18 18"
-            fill="white"
+            fill={`${!darkMode ? "white" : "#1da1f2"}`}
             onClick={resetFilters}
             className="mt-1 ml-1"
           >
