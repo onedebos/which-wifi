@@ -58,6 +58,10 @@ const LeaveAReview = ({ closeModal, mutate, darkMode }) => {
     if (mounted) {
       setCountText(watch("experience"));
       setCharLeft(280 - countText.length);
+
+      if (showSuccess) {
+        setTimeout(closeModal, 2000);
+      }
     }
     return () => {
       mounted = false;
