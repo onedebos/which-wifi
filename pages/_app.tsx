@@ -42,9 +42,11 @@ const MyApp: React.FC<CompProps> = ({ Component, pageProps }) => {
         />
         <meta property="og:type" content="website" />
         <meta name="author" content="Adebola Adeniran" />
+        <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
       </Head>
 
       <Component {...pageProps} />
+      
     </Provider>
   );
 };
