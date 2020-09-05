@@ -42,6 +42,7 @@ const MyApp: React.FC<CompProps> = ({ Component, pageProps }) => {
         />
         <meta property="og:type" content="website" />
         <meta name="author" content="Adebola Adeniran" />
+        <meta name="google-site-verification" content="5goa_J5eKJ8qysbv3AKXz8VT-6Pyn6miHqy1DPI2RM4" />
       </Head>
 
       <Component {...pageProps} />
