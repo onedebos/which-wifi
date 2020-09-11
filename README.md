@@ -41,7 +41,6 @@ npm start
 - Linkedin: [linkedin](https://www.linkedin.com/in/adebola-niran/)
 - Portfolio: [adebola.dev](https://www.adebola.dev/)
 
-Leave a star if you enjoyed it.
 
 ## 📝 License
 
